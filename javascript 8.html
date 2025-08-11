@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript Class</title>
+    </head>
+    <body>
+        <h1>Javascript Class</h1>
+        <p id="student1"></p>
+        <p id="student2"></p>
+        <script>
+            class student {
+                constructor(name,year) {
+                    this.name = name;
+                    this.year = year;
+                }
+                age(){
+                    let date= new Date();
+                    return date.getFullYear() - this.year;
+                }
+            }
+            student1 = new student("Ayaan", 2008)
+            document.getElementById("student1").innerHTML = "My name is " + student1.name + " and I was born in " + student1.year + ". I am " + student1.age() + " years old.";
+        
+            student2 = new student("Umer",2007)
+            document.getElementById("student2").innerHTML = "My name is " + student2.name + " and I was born in " + student2.year + ". I am " + student2.age() + " years old.";
+        </script>
+        <h2>Javascript Class Inheritance</h2>
+        <p id="details"></p>
+        <script>
+            class car {
+                constructor(brand)
+                {
+                    this.carname = brand;
+                }
+                present()
+                {
+                    return "I have a " + this.carname;
+                }
+ }
+ class model extends car {
+    constructor(brand,mod)
+    {
+        super(brand);
+        this.modelname = mod;
+    }
+    show()
+    {
+        return this.present() + ", it is a " + this.modelname;
+    }
+ }
+    let myCar = new model("Honda","Civic")
+    document.getElementById("details").innerHTML = myCar.show();
+        </script>
+ <h3>Static Methods</h3>
+ <p id="Hello"></p>
+ <p id="Hi"></p>
+ <p id="Welcome"></p>
+ <script>
+    class student1 {
+        constructor(name)
+        {
+            this.studentName = name;
+        }
+        static hello()
+        {
+            return "Hello!"
+        }
+ hi()
+        {
+            return "Hi!"+ this.studentName;
+        }
+        static welcome(x)
+        {
+            return "Welcome!"+ x.studentName;
+        }
+    }
+    myname= new student1("Abdullah")
+    document.getElementById("Hello").innerHTML = student1.hello();
+    document.getElementById("Hi").innerHTML = myname.hi();
+    document.getElementById("Welcome").innerHTML = student1.welcome(myname);
+   </script>
+</body>
+</html>
